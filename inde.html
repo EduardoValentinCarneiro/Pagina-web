@@ -5,49 +5,132 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
         rel="stylesheet">
-    <title>Guiminamflix</title>
+    <title>EducFlix</title>
 </head>
 
 <body>
-    <header>GUIMINAMFLIX</header>
 
-    <section class="chamada">
-        <div class="chamada-texto">
-            <h1>ATRAVÉS DO ARANHAVERSO</h1>
-            <p>#homem-aranha</p>
-        </div>
+    <!-- Tela de Seleção de Usuário -->
+    <div class="user-selection" id="userSelection">
+        <h2>Selecione seu perfil</h2>
+        <button onclick="enterCatalog()">Eduardov</button>
+    </div>
 
-        <div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/gt_fAE1Eg2Q?si=EEv-tsY_b1B2OwKE"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-    </section>
+    <!-- Catálogo de Filmes -->
+    <div class="catalog" id="catalog" style="display: none;">
+        <header>
+            EDUCFLIX <span id="exit" onclick="backToUserSelection()" aria-label="Sair do catálogo">Sair</span>
+        </header>
 
-    <section class="categoria">
-        <h2>Filmes e séries</h2>
-        <div class="categoria-videos">
-            <a href="https://www.youtube.com/watch?v=cs15QqG6Gjc">
-                <img src="https://img.youtube.com/vi/cs15QqG6Gjc/maxresdefault.jpg" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=nCmIwcycUJ8">
-                <img src="https://img.youtube.com/vi/nCmIwcycUJ8/maxresdefault.jpg" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=FvRmEapoHRc">
-                <img src="https://img.youtube.com/vi/FvRmEapoHRc/maxresdefault.jpg" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=Ipkw_hWW-Hw">
-                <img src="https://img.youtube.com/vi/Ipkw_hWW-Hw/maxresdefault.jpg" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=d4DzMNGoyis">
-                <img src="https://img.youtube.com/vi/d4DzMNGoyis/maxresdefault.jpg" />
-            </a>
-        </div>
-    </section>
+        <section class="chamada">
+            <div class="chamada-texto">
+                <h1>O Melhor Site de Resumo de Filmes</h1>
+                <p>Encontre sinopses, análises e muito mais!</p>
+            </div>
+
+            <div>
+                <iframe id="mainVideo" width="560" height="315" style="display: none; margin: 0 auto;" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                <button id="closeVideo" style="display: none;" onclick="closeVideo()" aria-label="Fechar vídeo">⬅️</button>
+            </div>
+        </section>
+
+        <section class="categoria">
+            <h2>Filmes e séries</h2>
+
+            <!-- Primeira linha de vídeos -->
+            <div class="categoria-videos">
+                <a href="#" onclick="playVideo('https://www.youtube.com/embed/I42Q5fS_Gk8')">
+                    <img src="https://img.youtube.com/vi/I42Q5fS_Gk8/maxresdefault.jpg" alt="Filme 1" />
+                </a>
+                <a href="#" onclick="playVideo('https://www.youtube.com/embed/YxT_JWvS8n4')">
+                    <img src="https://img.youtube.com/vi/YxT_JWvS8n4/maxresdefault.jpg" alt="Filme 2" />
+                </a>
+                <a href="#" onclick="playVideo('https://www.youtube.com/embed/LOLLmeBoZvE')">
+                    <img src="https://img.youtube.com/vi/LOLLmeBoZvE/maxresdefault.jpg" alt="Filme 3" />
+                </a>
+            </div>
+
+            <!-- Segunda linha de vídeos -->
+            <div class="categoria-videos">
+                <a href="#" onclick="playVideo('https://www.youtube.com/embed/8aRkLpG0Kdo')">
+                    <img src="https://img.youtube.com/vi/8aRkLpG0Kdo/maxresdefault.jpg" alt="Filme 4" />
+                </a>
+                <a href="#" onclick="playVideo('https://www.youtube.com/embed/QIA1Iqs3M4I')">
+                    <img src="https://img.youtube.com/vi/QIA1Iqs3M4I/maxresdefault.jpg" alt="Filme 5" />
+                </a>
+                <a href="#" onclick="playVideo('https://www.youtube.com/embed/FgfyBwPI4YA')">
+                    <img src="https://img.youtube.com/vi/FgfyBwPI4YA/maxresdefault.jpg" alt="Filme 6" />
+                </a>
+            </div>
+
+            <!-- Terceira linha de vídeos -->
+            <div class="categoria-videos">
+                <a href="#" onclick="playVideo('https://www.youtube.com/embed/aNGvZ0-rqUk')">
+                    <img src="https://img.youtube.com/vi/aNGvZ0-rqUk/maxresdefault.jpg" alt="Filme 7" />
+                </a>
+                <a href="#" onclick="playVideo('https://www.youtube.com/embed/Gpbfg-iyV_Q')">
+                    <img src="https://img.youtube.com/vi/Gpbfg-iyV_Q/maxresdefault.jpg" alt="Filme 8" />
+                </a>
+                <a href="#" onclick="playVideo('https://www.youtube.com/embed/P8B3Pzr6U-w')">
+                    <img src="https://img.youtube.com/vi/P8B3Pzr6U-w/maxresdefault.jpg" alt="Filme 9" />
+                </a>
+            </div>
+
+            <!-- Quarta linha de vídeos -->
+            <div class="categoria-videos">
+                <a href="#" onclick="playVideo('https://www.youtube.com/embed/Jny3xFFAQns')">
+                    <img src="https://img.youtube.com/vi/Jny3xFFAQns/maxresdefault.jpg" alt="Filme 10" />
+                </a>
+                <a href="#" onclick="playVideo('https://www.youtube.com/embed/_rLr5ejEW-o')">
+                    <img src="https://img.youtube.com/vi/_rLr5ejEW-o/maxresdefault.jpg" alt="Filme 11" />
+                </a>
+                <a href="#" onclick="playVideo('https://www.youtube.com/embed/RAGcUPJ3LMc')">
+                    <img src="https://img.youtube.com/vi/RAGcUPJ3LMc/maxresdefault.jpg" alt="Filme 12" />
+                </a>
+            </div>
+
+        </section>
+    </div>
+
+    <script>
+        function enterCatalog() {
+            document.getElementById("userSelection").style.display = "none";
+            document.getElementById("catalog").style.display = "block";
+        }
+
+        function backToUserSelection() {
+            document.getElementById("userSelection").style.display = "flex"; // Mostra a tela de seleção
+            document.getElementById("catalog").style.display = "none"; // Esconde o catálogo
+        }
+
+        function playVideo(videoUrl) {
+            const iframe = document.getElementById("mainVideo");
+            const closeBtn = document.getElementById("closeVideo");
+            iframe.src = videoUrl.replace("watch?v=", "embed/"); // Substitui o link do YouTube para o formato embed
+            iframe.style.display = "block";
+            closeBtn.style.display = "block";
+        }
+
+        function closeVideo() {
+            const iframe = document.getElementById("mainVideo");
+            const closeBtn = document.getElementById("closeVideo");
+            iframe.src = ""; // Limpa a URL do vídeo
+            iframe.style.display = "none";
+            closeBtn.style.display = "none";
+        }
+    </script>
 
 </body>
 
 </html>
+
+
+<!-- Rodapé de direitos autorais -->
+<footer class="footer">
+    <p>© 2024 EducFlix. Todos os direitos reservados.</p>
+</footer>
+
